@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://c82gmuxumb0r0"]
+
+[ext_resource type="PackedScene" uid="uid://bmfjaganj8jie" path="res://FPS.tscn" id="1_jj0fu"]
+
+[node name="World" type="Node3D"]
+
+[node name="Enviroment" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Enviroment"]
+transform = Transform3D(8.43035, 0, 0, 0, 0.0998339, 0, 0, 0, 10.5779, 0, 0, 0)
+size = Vector3(1, 1, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Enviroment"]
+transform = Transform3D(5.03712, 0, 0, 0, 0.0518894, 0, 0, 0, 6.41703, 0, 0.558064, 6.49333)
+size = Vector3(1, 1, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Enviroment"]
+transform = Transform3D(5.03712, 0, 0, 0, 0.0518894, 0, 0, 0, 6.41703, 3.86331, 0.316503, 1.92012)
+size = Vector3(1, 1, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Enviroment"]
+transform = Transform3D(5.03712, 0, 0, 0, 0.0518894, 0, 0, 0, 6.41703, -5.01484, 1.72863, 6.49333)
+size = Vector3(1, 1, 1)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.295719, 1.56987, 2.35786)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(5.03712, 0, 0, 0, 0.0518894, 0, 0, 0, 6.41703, 0, 0.558064, 6.49333)
+size = Vector3(1, 1, 1)
+
+[node name="FPS" parent="." instance=ExtResource( "1_jj0fu" )]
+transform = Transform3D(-0.99508, 0, 0.0990766, 0, 1, 0, -0.0990766, 0, -0.99508, 0, 2.0065, -2.99211)
