@@ -8,27 +8,24 @@
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Enviroment"]
-transform = Transform3D(8.43035, 0, 0, 0, 0.0998339, 0, 0, 0, 10.5779, 0, 0, 0)
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, -5.88039)
 size = Vector3(1, 1, 1)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Enviroment"]
-transform = Transform3D(5.03712, 0, 0, 0, 0.0518894, 0, 0, 0, 6.41703, 0, 0.558064, 6.49333)
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 1.85244, 2.05727, 6.49333)
 size = Vector3(1, 1, 1)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Enviroment"]
-transform = Transform3D(5.03712, 0, 0, 0, 0.0518894, 0, 0, 0, 6.41703, 3.86331, 0.316503, 1.92012)
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 8.26709, 1.02403, 1.92012)
 size = Vector3(1, 1, 1)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Enviroment"]
-transform = Transform3D(5.03712, 0, 0, 0, 0.0518894, 0, 0, 0, 6.41703, -5.01484, 1.72863, 6.49333)
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, -6.34566, 1.36397, 2.78768)
 size = Vector3(1, 1, 1)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.295719, 1.56987, 2.35786)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(5.03712, 0, 0, 0, 0.0518894, 0, 0, 0, 6.41703, 0, 0.558064, 6.49333)
-size = Vector3(1, 1, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.295719, 4.26941, 2.35786)
+omni_range = 9.84264
 
 [node name="FPS" parent="." instance=ExtResource( "1_jj0fu" )]
-transform = Transform3D(-0.99508, 0, 0.0990766, 0, 1, 0, -0.0990766, 0, -0.99508, 0, 2.0065, -2.99211)
+transform = Transform3D(-0.99508, 0, 0.0990766, 0, 1, 0, -0.0990766, 0, -0.99508, -1.5245, 2.13845, -9.97877)
