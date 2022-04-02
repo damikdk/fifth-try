@@ -37,14 +37,24 @@ func _input(event):
 func _process(delta):
 	camera.global_transform = head.global_transform
 	
-	var hit_result =  _raycast()
+	var hit_result = _raycast()
 	
 	if hit_result:
+		if (hit_result.collider.get_class() == "CSGBox3D"):
+			# hit_result.position is global
+			var box = hit_result.collider as CSGBox3D
+			
+			# localHitPosition is local and relative (-0.5 to 0.5)
+			var localHitPosition = box.to_local(hit_result.position)
+			var localTransform = box.transform
+			var globalTransform = box.global_transform
+			
+			print(localHitPosition, globalTransform, box.size)
+			
 		_add_sphere(hit_result.position)
 		
 func _physics_process(delta):
 	var direction = Vector3()
-	var velocity = Vector3()
 	
 	# get keyboard input
 	var h_rot = transform.basis.get_euler().y
@@ -67,7 +77,7 @@ func _physics_process(delta):
 	result_vector = result_vector.clamp(result_vector, max_speed_vector)
 	
 	# make it move
-	motion_velocity = result_vector
+	velocity = result_vector
 	
 	move_and_slide()
 	
@@ -77,6 +87,7 @@ func _raycast() -> Dictionary:
 	var parameter = PhysicsRayQueryParameters3D.new()
 	parameter.from = ray_from
 	parameter.to = ray_to
+	parameter.exclude = [self]
 
 	var hit_result: Dictionary = space_state.intersect_ray(parameter)
 	return hit_result

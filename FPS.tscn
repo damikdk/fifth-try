@@ -3,11 +3,9 @@
 [ext_resource type="Script" path="res://FPS.gd" id="1_cgphl"]
 
 [sub_resource type="CapsuleShape3D" id="1"]
-radius = 0.5
 height = 2.8777
 
 [sub_resource type="CapsuleMesh" id="2"]
-radius = 0.5
 
 [node name="FPS" type="CharacterBody3D"]
 script = ExtResource( "1_cgphl" )
@@ -19,7 +17,7 @@ shape = SubResource( "1" )
 mesh = SubResource( "2" )
 
 [node name="Head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11202, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.86801, 0)
 
 [node name="Camera" type="Camera3D" parent="Head"]
 fov = 90.0
