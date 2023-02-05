@@ -10,10 +10,10 @@ var ray_length = 20
 var ray_from: Vector3 = Vector3()
 var ray_to: Vector3 = Vector3()
 
-var debug_sphere_size = 0.1
-
 var vertical_vector = Vector3()
 var horizontal_vector = Vector3()
+
+var last_mouse_position = Vector2()
 
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera
@@ -23,35 +23,37 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
-	# get mouse input for camera rotation
+	
+	if event is InputEventKey and event.keycode == KEY_ESCAPE:
+		get_tree().quit()
+		
 	if event is InputEventMouseMotion:
 		# rotate camera
-		rotate_y(deg2rad(-event.relative.x * mouse_sense))
-		head.rotate_x(deg2rad(-event.relative.y * mouse_sense))
-		head.rotation.x = clamp(head.rotation.x, deg2rad(-89), deg2rad(89))
+		rotate_y(deg_to_rad(-event.relative.x * mouse_sense))
+		head.rotate_x(deg_to_rad(-event.relative.y * mouse_sense))
+		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-89), deg_to_rad(89))
 		
-		# Cast ray from camera
-		ray_from = camera.project_ray_origin(event.position)
-		ray_to = ray_from + camera.project_ray_normal(event.position) * ray_length
-	
-func _process(delta):
+		last_mouse_position = event.position
+		
 	camera.global_transform = head.global_transform
 	
-	var hit_result = _raycast()
+func _process(delta):
 	
-	if hit_result:
-		if (hit_result.collider.get_class() == "CSGBox3D"):
-			# hit_result.position is global
-			var box = hit_result.collider as CSGBox3D
+	get_tree().call_group("Cursor", "queue_free")
+
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+		ray_from = camera.project_ray_origin(last_mouse_position)
+		ray_to = ray_from + camera.project_ray_normal(last_mouse_position) * ray_length
+		var hit_result = Helpers.raycast(ray_from, ray_to, [self])
+		
+		if hit_result:
+			if hit_result.collider.is_in_group("Teleportable"):
+				Helpers.add_sphere(hit_result.position, 0.2).add_to_group("Cursor")
 			
-			# localHitPosition is local and relative (-0.5 to 0.5)
-			var localHitPosition = box.to_local(hit_result.position)
-			var localTransform = box.transform
-			var globalTransform = box.global_transform
-			
-			print(localHitPosition, globalTransform, box.size)
-			
-		_add_sphere(hit_result.position)
+	#		if (hit_result.collider.get_class() == "CSGBox3D"):
+	#			# hit_result.position is global
+	#			var box = hit_result.collider as CSGBox3D
+	#			Helpers.add_sphere(hit_result.position)
 		
 func _physics_process(delta):
 	var direction = Vector3()
@@ -80,38 +82,4 @@ func _physics_process(delta):
 	velocity = result_vector
 	
 	move_and_slide()
-	
-func _raycast() -> Dictionary:
-	var space_state = get_world_3d().direct_space_state
 
-	var parameter = PhysicsRayQueryParameters3D.new()
-	parameter.from = ray_from
-	parameter.to = ray_to
-	parameter.exclude = [self]
-
-	var hit_result: Dictionary = space_state.intersect_ray(parameter)
-	return hit_result
-	
-func _add_sphere(location: Vector3):
-	# Get root scene
-	var scene_root = get_tree().root.get_children()[0]
-
-	# Create sphere with low detail of size.
-	var sphere = SphereMesh.new()
-	sphere.radial_segments = 4
-	sphere.rings = 4
-	sphere.radius = debug_sphere_size
-	sphere.height = debug_sphere_size * 2
-	
-	# Bright red material (unshaded).
-	var material = StandardMaterial3D.new()
-	material.albedo_color = Color(1, 0, 0)
-	material.flags_unshaded = true
-	sphere.surface_set_material(0, material)
-	
-	# Add to meshinstance in the right place.
-	var node = MeshInstance3D.new()
-	node.mesh = sphere
-	node.global_transform.origin = location
-
-	scene_root.add_child(node)
