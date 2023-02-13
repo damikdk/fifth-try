@@ -20,7 +20,7 @@ func add_sphere(location: Vector3, size = SIZE, color = COLOR) -> Node3D:
 
 	# Create sphere with low detail of size.
 	var sphere = SphereMesh.new()
-	sphere.radial_segments = 4
+	sphere.radial_segments = 8
 	sphere.rings = 4
 	sphere.radius = size
 	sphere.height = size * 2

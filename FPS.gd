@@ -18,10 +18,13 @@ var last_mouse_position = Vector2()
 
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera
+@onready var cursor: ColorRect = $Head/Camera/ColorRect
 
 func _ready():
 	# hides the cursor
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 func _input(event):
 	
@@ -40,18 +43,22 @@ func _input(event):
 	
 func _process(delta):
 	
-	get_tree().call_group("Cursor", "queue_free")
+	get_tree().call_group("TeleportCursor", "queue_free")
 
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+		cursor.visible = false 
+		
 		ray_from = camera.project_ray_origin(last_mouse_position)
 		ray_to = ray_from + camera.project_ray_normal(last_mouse_position) * ray_length
 		var hit_result = Helpers.raycast(ray_from, ray_to, [self])
 		
 		if hit_result:
 			if hit_result.collider.is_in_group("Teleportable"):
-				Helpers.add_sphere(hit_result.position, 0.2).add_to_group("Cursor")
+				Helpers.add_sphere(hit_result.position, 0.2).add_to_group("TeleportCursor")
 
 	if Input.is_action_just_released("right_mouse"):
+		cursor.visible = true 
+		
 		ray_from = camera.project_ray_origin(last_mouse_position)
 		ray_to = ray_from + camera.project_ray_normal(last_mouse_position) * ray_length
 		var hit_result = Helpers.raycast(ray_from, ray_to, [self])
