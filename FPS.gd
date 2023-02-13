@@ -2,7 +2,8 @@ extends CharacterBody3D
 
 var speed = 6
 var max_speed_vector = Vector3(speed, speed, speed)
-var jump = 5
+var jump = 10
+var mass = 5
 
 var mouse_sense = 0.1
 
@@ -61,7 +62,6 @@ func _process(delta):
 				var points = hit_result.collider.teleport_points
 				
 				if (points.size() > 0):
-					print("-=------=-=-==--=-=-==-=-")
 					var closest_point = points[0]
 					var minimal_distance = 9999
 					
@@ -90,10 +90,10 @@ func _physics_process(delta):
 	if is_on_floor():
 		vertical_vector = Vector3.ZERO
 	else: 
-		vertical_vector += -up_direction * 9.8 * delta
+		vertical_vector += -up_direction * 9.8 * mass * delta
 		
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		vertical_vector.y += jump 
+		vertical_vector.y += jump
 	
 	var result_vector = horizontal_vector + vertical_vector
 	result_vector = result_vector.clamp(result_vector, max_speed_vector)
