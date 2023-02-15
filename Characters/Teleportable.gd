@@ -21,7 +21,3 @@ func add_marks():
 		
 		var new_sphere = Helpers.add_sphere(mark_position + global_position_for_row)
 		teleport_points.append(new_sphere)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

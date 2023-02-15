@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmfjaganj8jie"]
+[gd_scene load_steps=4 format=3 uid="uid://yi6wcrfubii3"]
 
-[ext_resource type="Script" path="res://FPS.gd" id="1_cgphl"]
+[ext_resource type="Script" path="res://Characters/DishonoredTP.gd" id="1_eeguh"]
 
 [sub_resource type="CapsuleShape3D" id="1"]
 height = 2.8777
@@ -8,7 +8,7 @@ height = 2.8777
 [sub_resource type="CapsuleMesh" id="2"]
 
 [node name="FPS" type="CharacterBody3D"]
-script = ExtResource("1_cgphl")
+script = ExtResource("1_eeguh")
 
 [node name="CollisionShape" type="CollisionShape3D" parent="."]
 shape = SubResource("1")

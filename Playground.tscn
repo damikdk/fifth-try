@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c82gmuxumb0r0"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="PackedScene" uid="uid://bmfjaganj8jie" path="res://FPS.tscn" id="1_g54wv"]
-[ext_resource type="Script" path="res://Teleportable.gd" id="2_niega"]
+[ext_resource type="PackedScene" uid="uid://yi6wcrfubii3" path="res://Characters/FPS.tscn" id="1_v6qwl"]
+[ext_resource type="Script" path="res://Characters/Teleportable.gd" id="2_110st"]
 
 [node name="World" type="Node3D"]
 
@@ -9,7 +9,7 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.334031, 9.47438, -4.14931)
 omni_range = 9.84264
 
-[node name="FPS" parent="." instance=ExtResource("1_g54wv")]
+[node name="FPS" parent="." instance=ExtResource("1_v6qwl")]
 transform = Transform3D(-0.99508, 0, 0.0990766, 0, 1, 0, -0.0990766, 0, -0.99508, -1.53983, 2.86454, -9.97786)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
@@ -35,9 +35,14 @@ size = Vector3(1, 10, 10)
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(0.884, 0, 0, 0, 0.636, 0, 0, 0, 9, -7.4095, 9.00079, -2.67267)
 use_collision = true
-script = ExtResource("2_niega")
+script = ExtResource("2_110st")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
 transform = Transform3D(0.884, 0, 0, 0, 0.636, 0, 0, 0, 9, 5.32333, 4.90999, -2.67267)
 use_collision = true
-script = ExtResource("2_niega")
+script = ExtResource("2_110st")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(-3.86409e-08, 0, 9, 0, 0.636, 0, -0.884, 0, -3.93402e-07, -0.62525, 10.0026, 1.9562)
+use_collision = true
+script = ExtResource("2_110st")
