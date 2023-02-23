@@ -3,7 +3,7 @@ extends CharacterBody3D
 var speed = 6
 var max_speed_vector = Vector3(speed, speed, speed)
 var jump = 10
-var mass = 5
+var mass = 4
 
 var mouse_sense = 0.1
 
@@ -12,9 +12,8 @@ var horizontal_vector = Vector3()
 
 var last_mouse_position = Vector2()
 
-@onready var head: Node3D = $Head
-@onready var camera: Camera3D = $Head/Camera
-@onready var cursor: ColorRect = $Head/Camera/ColorRect
+@onready var camera: Camera3D = $Camera
+@onready var cursor: ColorRect = $Camera/ColorRect
 
 func _ready():
 	# hides the cursor
@@ -28,12 +27,10 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		# rotate camera
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sense))
-		head.rotate_x(deg_to_rad(-event.relative.y * mouse_sense))
-		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-89), deg_to_rad(89))
+		camera.rotate_x(deg_to_rad(-event.relative.y * mouse_sense))
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-89), deg_to_rad(89))
 		
 		last_mouse_position = event.position
-
-	camera.global_transform = head.global_transform
 
 func _physics_process(delta):
 	var direction = Vector3()

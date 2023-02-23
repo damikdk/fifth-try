@@ -16,14 +16,12 @@ shape = SubResource("1")
 [node name="MeshInstance" type="MeshInstance3D" parent="."]
 mesh = SubResource("2")
 
-[node name="Head" type="Node3D" parent="."]
+[node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.86801, 0)
-
-[node name="Camera" type="Camera3D" parent="Head"]
 fov = 90.0
 far = 300.0
 
-[node name="ColorRect" type="ColorRect" parent="Head/Camera"]
+[node name="ColorRect" type="ColorRect" parent="Camera"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
