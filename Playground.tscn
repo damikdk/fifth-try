@@ -18,8 +18,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.52646, 4.04388, -2.11211)
 use_collision = true
 size = Vector3(1, 10, 10)
 
-[node name="Teleportable" type="CSGBox3D" parent="CSGBox3D6"]
-transform = Transform3D(0.885671, 0, 0, 0, 1.47196, 0, 0, 0, 9.01701, 0.11696, 4.38538, -0.56056)
+[node name="Teleportable3" type="CSGBox3D" parent="."]
+transform = Transform3D(0.885671, 0, 0, 0, 1.47196, 0, 0, 0, 9.01701, -7.4095, 8.42926, -2.67267)
 use_collision = true
 script = ExtResource("2_110st")
 
@@ -28,8 +28,8 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.665
 use_collision = true
 size = Vector3(1, 10, 10)
 
-[node name="Teleportable" type="CSGBox3D" parent="CSGBox3D7"]
-transform = Transform3D(0.884, 0, -1.47793e-12, 0, 1.67285, 0, -2.13163e-14, 0, 10.2852, 0.12381, 4.26312, 0.0397801)
+[node name="Teleportable2" type="CSGBox3D" parent="."]
+transform = Transform3D(-3.86409e-08, 0, 10.2852, 0, 1.67285, 0, -0.884, 0, -4.49579e-07, -0.62525, 9.39392, 1.9562)
 use_collision = true
 script = ExtResource("2_110st")
 
@@ -38,8 +38,8 @@ transform = Transform3D(1.59877, 0, 0, 0, 1, 0, 0, 0, 1, 5.77287, 0.216618, -2.1
 use_collision = true
 size = Vector3(1, 10, 10)
 
-[node name="Teleportable" type="CSGBox3D" parent="CSGBox3D9"]
-transform = Transform3D(0.552925, 0, 0, 0, 1.15232, 0, 0, 0, 9, -0.281179, 4.56794, -0.56056)
+[node name="Teleportable" type="CSGBox3D" parent="."]
+transform = Transform3D(0.884, 0, 0, 0, 1.15232, 0, 0, 0, 9, 5.32333, 4.78456, -2.67267)
 use_collision = true
 script = ExtResource("2_110st")
 
