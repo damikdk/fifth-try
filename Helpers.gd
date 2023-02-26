@@ -25,7 +25,7 @@ func add_sphere(location: Vector3, size = SIZE, color = COLOR) -> Node3D:
 	sphere.radius = size
 	sphere.height = size * 2
 	
-	# Bright red material (unshaded).
+	# Gray material (unshaded).
 	var material = StandardMaterial3D.new()
 	material.albedo_color = color
 	material.flags_unshaded = true
@@ -34,7 +34,11 @@ func add_sphere(location: Vector3, size = SIZE, color = COLOR) -> Node3D:
 	# Add to meshinstance in the right place.
 	var node = MeshInstance3D.new()
 	node.mesh = sphere
-	node.global_transform.origin = location
+
 
 	scene_root.add_child(node)
+	
+	# You can't do this before adding to tree
+	node.global_transform.origin = location
+	
 	return node

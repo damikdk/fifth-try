@@ -1,12 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://cog71lsdg6iy0"]
+[gd_scene load_steps=3 format=3 uid="uid://t2wl5jf55jxa"]
 
-[ext_resource type="PackedScene" uid="uid://yi6wcrfubii3" path="res://Characters/FPS.tscn" id="1_v6qwl"]
-[ext_resource type="Script" path="res://Characters/Teleportable.gd" id="2_110st"]
+[ext_resource type="PackedScene" uid="uid://yi6wcrfubii3" path="res://Characters/FPS.tscn" id="1_88nwl"]
+[ext_resource type="Script" path="res://Characters/Dash.gd" id="2_8mn25"]
 
 [node name="World" type="Node3D"]
 
-[node name="FPS" parent="." instance=ExtResource("1_v6qwl")]
+[node name="FPS" parent="." instance=ExtResource("1_88nwl")]
 transform = Transform3D(-0.99508, 0, 0.0990766, 0, 1, 0, -0.0990766, 0, -0.99508, -1.53983, 2.86454, -9.97786)
+script = ExtResource("2_8mn25")
+dash_speed = 50
+dash_duration = 0.1
 
 [node name="Floor" type="CSGBox3D" parent="."]
 transform = Transform3D(2.0682, 0, 0, 0, 1.00691, 0, 0, 0, 2.0121, -0.0521376, 0.110149, -5.9057)
@@ -18,30 +21,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.52646, 4.04388, -2.11211)
 use_collision = true
 size = Vector3(1, 10, 10)
 
-[node name="Teleportable" type="CSGBox3D" parent="CSGBox3D6"]
-transform = Transform3D(0.885671, 0, 0, 0, 1.47196, 0, 0, 0, 9.01701, 0.11696, 4.38538, -0.56056)
-use_collision = true
-script = ExtResource("2_110st")
-
 [node name="CSGBox3D7" type="CSGBox3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.66503, 5.1308, 2.08001)
 use_collision = true
 size = Vector3(1, 10, 10)
 
-[node name="Teleportable" type="CSGBox3D" parent="CSGBox3D7"]
-transform = Transform3D(0.884, 0, -1.47793e-12, 0, 1.67285, 0, -2.13163e-14, 0, 10.2852, 0.12381, 4.26312, 0.0397801)
-use_collision = true
-script = ExtResource("2_110st")
-
 [node name="CSGBox3D9" type="CSGBox3D" parent="."]
-transform = Transform3D(1.59877, 0, 0, 0, 1, 0, 0, 0, 1, 5.77287, 0.216618, -2.11211)
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 1, 7.24613, 2.05583, -2.16012)
 use_collision = true
 size = Vector3(1, 10, 10)
-
-[node name="Teleportable" type="CSGBox3D" parent="CSGBox3D9"]
-transform = Transform3D(0.552925, 0, 0, 0, 1.15232, 0, 0, 0, 9, -0.281179, 4.56794, -0.56056)
-use_collision = true
-script = ExtResource("2_110st")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.10285, 8.48648, 0.602404)

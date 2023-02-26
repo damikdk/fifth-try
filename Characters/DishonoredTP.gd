@@ -1,12 +1,8 @@
 extends "res://Characters/FPS.gd"
 
-var ray_length = 20
+@export_range(1, 20) var ray_length = 15
 var ray_from: Vector3 = Vector3()
 var ray_to: Vector3 = Vector3()
-
-func _ready():
-	# hides the cursor
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _process(_delta):
 	get_tree().call_group("TeleportCursor", "queue_free")

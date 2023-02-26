@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://croh78y1j0prf"]
+[gd_scene load_steps=4 format=3 uid="uid://croh78y1j0prf"]
 
 [ext_resource type="Script" path="res://Menu/MainMenu.gd" id="1_1asig"]
 [ext_resource type="Script" path="res://Menu/ButtonDishonoredTP.gd" id="1_unfvl"]
+[ext_resource type="Script" path="res://Menu/ButtonDash.gd" id="3_cenk1"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -35,11 +36,13 @@ size_flags_horizontal = 3
 text = "Dishonored Teleport"
 script = ExtResource("1_unfvl")
 
-[node name="ButtonOverwatchDash" type="Button" parent="ScrollContainer/VBoxContainer"]
+[node name="ButtonDash" type="Button" parent="ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Overwatch Genji Dash
+text = "Dash
 "
+script = ExtResource("3_cenk1")
 
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/ButtonDishonoredTP" to="ScrollContainer/VBoxContainer/ButtonDishonoredTP" method="_on_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/ButtonDash" to="ScrollContainer/VBoxContainer/ButtonDash" method="_on_pressed"]

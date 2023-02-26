@@ -53,7 +53,7 @@ func _physics_process(delta):
 		vertical_vector.y += jump
 	
 	var result_vector = horizontal_vector + vertical_vector
-	result_vector = result_vector.clamp(result_vector, max_speed_vector)
+#	result_vector = result_vector.clamp(result_vector, max_speed_vector)
 	
 	# make it move
 	velocity = result_vector
