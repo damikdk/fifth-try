@@ -9,6 +9,12 @@ func _process(_delta):
 
 func dash():
 	var old_speed = speed
+	
+	# Change speed
 	speed = dash_speed
-	await get_tree().create_timer(dash_duration).timeout # wait for 1 second
+	
+	# Wait for duration
+	await get_tree().create_timer(dash_duration).timeout
+	
+	# Slow player back
 	speed = old_speed
