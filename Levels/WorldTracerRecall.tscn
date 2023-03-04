@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://c02mhq0gtay5p"]
+
+[ext_resource type="PackedScene" uid="uid://yi6wcrfubii3" path="res://Characters/FPS.tscn" id="1_vfe35"]
+[ext_resource type="Script" path="res://Characters/Dash.gd" id="2_7mk8o"]
+
+[node name="World" type="Node3D"]
+
+[node name="FPS" parent="." instance=ExtResource("1_vfe35")]
+transform = Transform3D(-0.99508, 0, 0.0990766, 0, 1, 0, -0.0990766, 0, -0.99508, -1.53983, 2.86454, -9.97786)
+script = ExtResource("2_7mk8o")
+dash_speed = 50
+dash_duration = 0.1
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(2.0682, 0, 0, 0, 1.00691, 0, 0, 0, 2.0121, -0.0521376, 0.110149, -5.9057)
+use_collision = true
+size = Vector3(10, 1, 10)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.113585, 0, 0, 0, 1, -2.87788, 2.74739, -2.11211)
+use_collision = true
+size = Vector3(1, 10, 10)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0815011, 0, 0, 0, 0.465921, 2.74484, 1.78731, -3.39246)
+use_collision = true
+size = Vector3(1.55538, 10, 10)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0584799, 0, 0, 0, 0.217082, -0.241123, 2.69943, -4.8263)
+use_collision = true
+size = Vector3(1.55538, 10, 14.4019)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 0.118598, 0, -1, 0, -4.37114e-08, -0.66503, 1.22249, 2.69421)
+use_collision = true
+size = Vector3(1, 10, 10)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 0.0779947, 0, 0, 0, 1, 7.24613, 1.02696, -2.16012)
+use_collision = true
+size = Vector3(1, 10, 10)
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.95558, 5.19198, 0.00867844)
+omni_range = 9.84264
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.16981, 2.59599, 0.824365)
+omni_range = 9.84264
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.14334, 3.3069, -7.11638)
+omni_range = 9.84264

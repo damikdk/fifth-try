@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://cog71lsdg6iy0"]
 
-[ext_resource type="PackedScene" uid="uid://yi6wcrfubii3" path="res://Characters/FPS.tscn" id="1_v6qwl"]
-[ext_resource type="Script" path="res://Characters/Teleportable.gd" id="2_110st"]
+[ext_resource type="PackedScene" uid="uid://yi6wcrfubii3" path="res://Characters/FPS.tscn" id="1_0ilnf"]
+[ext_resource type="Script" path="res://Characters/Teleportable.gd" id="2_smdqs"]
 
 [node name="World" type="Node3D"]
 
-[node name="FPS" parent="." instance=ExtResource("1_v6qwl")]
+[node name="FPS" parent="." instance=ExtResource("1_0ilnf")]
 transform = Transform3D(-0.99508, 0, 0.0990766, 0, 1, 0, -0.0990766, 0, -0.99508, -1.53983, 2.86454, -9.97786)
 
 [node name="Floor" type="CSGBox3D" parent="."]
@@ -21,7 +21,7 @@ size = Vector3(1, 10, 10)
 [node name="Teleportable3" type="CSGBox3D" parent="."]
 transform = Transform3D(0.885671, 0, 0, 0, 1.47196, 0, 0, 0, 9.01701, -7.4095, 8.42926, -2.67267)
 use_collision = true
-script = ExtResource("2_110st")
+script = ExtResource("2_smdqs")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.66503, 5.1308, 2.08001)
@@ -31,7 +31,7 @@ size = Vector3(1, 10, 10)
 [node name="Teleportable2" type="CSGBox3D" parent="."]
 transform = Transform3D(-3.86409e-08, 0, 10.2852, 0, 1.67285, 0, -0.884, 0, -4.49579e-07, -0.62525, 9.39392, 1.9562)
 use_collision = true
-script = ExtResource("2_110st")
+script = ExtResource("2_smdqs")
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="."]
 transform = Transform3D(1.59877, 0, 0, 0, 1, 0, 0, 0, 1, 5.77287, 0.216618, -2.11211)
@@ -41,7 +41,7 @@ size = Vector3(1, 10, 10)
 [node name="Teleportable" type="CSGBox3D" parent="."]
 transform = Transform3D(0.884, 0, 0, 0, 1.15232, 0, 0, 0, 9, 5.32333, 4.78456, -2.67267)
 use_collision = true
-script = ExtResource("2_110st")
+script = ExtResource("2_smdqs")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.10285, 8.48648, 0.602404)
