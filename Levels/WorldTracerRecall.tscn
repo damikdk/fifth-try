@@ -1,15 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://c02mhq0gtay5p"]
 
 [ext_resource type="PackedScene" uid="uid://yi6wcrfubii3" path="res://Characters/FPS.tscn" id="1_vfe35"]
-[ext_resource type="Script" path="res://Characters/Dash.gd" id="2_7mk8o"]
+[ext_resource type="Script" path="res://Characters/TracerRecall.gd" id="2_xx717"]
 
 [node name="World" type="Node3D"]
 
 [node name="FPS" parent="." instance=ExtResource("1_vfe35")]
 transform = Transform3D(-0.99508, 0, 0.0990766, 0, 1, 0, -0.0990766, 0, -0.99508, -1.53983, 2.86454, -9.97786)
-script = ExtResource("2_7mk8o")
-dash_speed = 50
-dash_duration = 0.1
+script = ExtResource("2_xx717")
+recall_depth = 3
+recall_duration = 1
+position_record_frequency = 0.1
 
 [node name="Floor" type="CSGBox3D" parent="."]
 transform = Transform3D(2.0682, 0, 0, 0, 1.00691, 0, 0, 0, 2.0121, -0.0521376, 0.110149, -5.9057)

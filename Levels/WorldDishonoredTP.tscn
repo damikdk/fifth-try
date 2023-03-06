@@ -1,12 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://cog71lsdg6iy0"]
+[gd_scene load_steps=4 format=3 uid="uid://cog71lsdg6iy0"]
 
 [ext_resource type="PackedScene" uid="uid://yi6wcrfubii3" path="res://Characters/FPS.tscn" id="1_0ilnf"]
+[ext_resource type="Script" path="res://Characters/DishonoredTP.gd" id="2_24gmi"]
 [ext_resource type="Script" path="res://Characters/Teleportable.gd" id="2_smdqs"]
 
 [node name="World" type="Node3D"]
 
 [node name="FPS" parent="." instance=ExtResource("1_0ilnf")]
 transform = Transform3D(-0.99508, 0, 0.0990766, 0, 1, 0, -0.0990766, 0, -0.99508, -1.53983, 2.86454, -9.97786)
+script = ExtResource("2_24gmi")
+ray_length = 15
 
 [node name="Floor" type="CSGBox3D" parent="."]
 transform = Transform3D(2.0682, 0, 0, 0, 1.00691, 0, 0, 0, 2.0121, -0.0521376, 0.110149, -5.9057)
