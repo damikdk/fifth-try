@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=3 uid="uid://2ypaqkjs10fy"]
+
+[ext_resource type="PackedScene" uid="uid://yi6wcrfubii3" path="res://Characters/FPS.tscn" id="1_y8tjk"]
+[ext_resource type="PackedScene" path="res://Characters/LifeSphere/LifeSphere.tscn" id="3_fh0s1"]
+
+[sub_resource type="Environment" id="Environment_echk1"]
+sdfgi_enabled = true
+fog_density = 0.0342
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.2823
+volumetric_fog_emission = Color(0.380392, 0.380392, 0.380392, 1)
+
+[node name="World" type="Node3D"]
+
+[node name="FPS" parent="." instance=ExtResource("1_y8tjk")]
+transform = Transform3D(-0.99508, 0, 0.0990766, 0, 1, 0, -0.0990766, 0, -0.99508, -1.53942, 2.87192, -9.97731)
+
+[node name="LifeSphere" parent="FPS" instance=ExtResource("3_fh0s1")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.459785, 0, -0.576372)
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(4.08614, 0, 0, 0, 1.00691, 0, 0, 0, 6.69987, -0.0521376, 0.110149, -5.9057)
+use_collision = true
+size = Vector3(10, 1, 10)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.40715, 5.31936, -2.11211)
+use_collision = true
+size = Vector3(1, 10, 10)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13, 4, 14)
+use_collision = true
+size = Vector3(1, 10, 10)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.9485, 4, 8.24148)
+use_collision = true
+size = Vector3(1, 10, 10)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 5, 3)
+use_collision = true
+size = Vector3(1, 10, 10)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.4619, 5, 20.3627)
+use_collision = true
+size = Vector3(1, 10, 10)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="."]
+transform = Transform3D(0.985677, 0, -0.168644, 0, 1, 0, 0.168644, 0, 0.985677, -1.04934, 5.37271, -7.27854)
+use_collision = true
+size = Vector3(2, 10, 2)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.78071, 5.37271, -1.21686)
+use_collision = true
+size = Vector3(2, 10, 2)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_echk1")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.301638, 0.953423, 0, -0.953423, 0.301638, -0.0121894, 9.13157, 2.27572)
+light_energy = 13.0
+spot_range = 10.0
+spot_angle = 35.6
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.301638, 0.953423, 0, -0.953423, 0.301638, -0.0121894, 9.47112, -9.18331)
+light_energy = 13.0
+spot_range = 10.0
+spot_angle = 35.6

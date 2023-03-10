@@ -12,7 +12,7 @@ dash_speed = 50
 dash_duration = 0.1
 
 [node name="Floor" type="CSGBox3D" parent="."]
-transform = Transform3D(2.0682, 0, 0, 0, 1.00691, 0, 0, 0, 2.0121, -0.0521376, 0.110149, -5.9057)
+transform = Transform3D(4.08614, 0, 0, 0, 1.00691, 0, 0, 0, 6.69987, -0.0521376, 0.110149, -5.9057)
 use_collision = true
 size = Vector3(10, 1, 10)
 
@@ -21,13 +21,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.52646, 4.04388, -2.11211)
 use_collision = true
 size = Vector3(1, 10, 10)
 
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13, 4, 14)
+use_collision = true
+size = Vector3(1, 10, 10)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.9485, 4, 8.24148)
+use_collision = true
+size = Vector3(1, 10, 10)
+
 [node name="CSGBox3D7" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.66503, 5.1308, 2.08001)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 5, 3)
+use_collision = true
+size = Vector3(1, 10, 10)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.4619, 5, 20.3627)
 use_collision = true
 size = Vector3(1, 10, 10)
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="."]
-transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 1, 7.24613, 2.05583, -2.16012)
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2, -8.31508)
 use_collision = true
 size = Vector3(1, 10, 10)
 
@@ -36,5 +51,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.10285, 8.48648, 0.602404)
 omni_range = 9.84264
 
 [node name="OmniLight3D" type="OmniLight3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.27266, -7.09078, -0.700939)
+omni_range = 9.84264
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.1878, 8.48648, 10.0704)
+omni_range = 9.84264
+
+[node name="OmniLight3D" type="OmniLight3D" parent="OmniLight3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.27266, -7.09078, -0.700939)
 omni_range = 9.84264

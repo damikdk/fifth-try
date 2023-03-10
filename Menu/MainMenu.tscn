@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://croh78y1j0prf"]
+[gd_scene load_steps=6 format=3 uid="uid://croh78y1j0prf"]
 
 [ext_resource type="Script" path="res://Menu/MainMenu.gd" id="1_1asig"]
 [ext_resource type="Script" path="res://Menu/ButtonDishonoredTP.gd" id="1_unfvl"]
 [ext_resource type="Script" path="res://Menu/ButtonDash.gd" id="3_cenk1"]
 [ext_resource type="Script" path="res://Menu/ButtonTracerRecall.gd" id="4_jux3v"]
+[ext_resource type="Script" path="res://Menu/ButtonSphere.gd" id="5_35q3r"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -17,18 +18,23 @@ script = ExtResource("1_1asig")
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 custom_minimum_size = Vector2(400, 800)
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -4.0
-offset_right = 8.0
-offset_bottom = 4.0
+offset_left = -200.0
+offset_top = -400.0
+offset_right = 200.0
+offset_bottom = 400.0
+grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+alignment = 1
 
 [node name="ButtonDishonoredTP" type="Button" parent="ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
@@ -52,6 +58,14 @@ size_flags_horizontal = 3
 text = "Tracer Recall"
 script = ExtResource("4_jux3v")
 
+[node name="ButtonSphere" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Sphere"
+script = ExtResource("5_35q3r")
+
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/ButtonDishonoredTP" to="ScrollContainer/VBoxContainer/ButtonDishonoredTP" method="_on_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/ButtonDash" to="ScrollContainer/VBoxContainer/ButtonDash" method="_on_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/ButtonTracerRecall" to="ScrollContainer/VBoxContainer/ButtonTracerRecall" method="_on_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/ButtonSphere" to="ScrollContainer/VBoxContainer/ButtonSphere" method="_on_pressed"]

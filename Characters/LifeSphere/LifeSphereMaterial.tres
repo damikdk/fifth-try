@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://d4no2mmjhfxa8"]
+
+[ext_resource type="Shader" path="res://Characters/LifeSphere/LifeSphere.gdshader" id="1_klv7x"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_klv7x")
+shader_parameter/base_color_shadow = Vector4(0, 0, 1, 0)
+shader_parameter/base_color_highlight = Vector4(1, 0, 1, 0)
+shader_parameter/base_color_blend = 1.2
+shader_parameter/color_modulate_frequency = 0.1
+shader_parameter/noise_displacement = 0.1
+shader_parameter/noise_scale = 1.6
+shader_parameter/noise_time_scale = 0.1
+shader_parameter/alpha_distance_min = 0.5
+shader_parameter/alpha_distance_max = 1.24
+shader_parameter/alpha_time_scale = 0.1
+shader_parameter/emission_intensity = 1.7
+shader_parameter/highlight_intensity = 4.2

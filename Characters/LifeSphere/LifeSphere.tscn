@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Material" path="res://Characters/LifeSphere/LifeSphereMaterial.tres" id="1_ka2rf"]
+[ext_resource type="Script" path="res://Characters/LifeSphere/LifeSphere.gd" id="2_olren"]
+
+[node name="CSGSphere3D" type="CSGSphere3D"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.459785, 0, -0.576368)
+radius = 1.0
+radial_segments = 32
+rings = 32
+material = ExtResource("1_ka2rf")
+script = ExtResource("2_olren")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0.647059, 0, 1, 1)
+light_energy = 0.358
+light_indirect_energy = 1.697
+light_volumetric_fog_energy = 1.997
