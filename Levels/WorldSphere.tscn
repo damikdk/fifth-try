@@ -16,7 +16,7 @@ volumetric_fog_emission = Color(0.380392, 0.380392, 0.380392, 1)
 transform = Transform3D(-0.99508, 0, 0.0990766, 0, 1, 0, -0.0990766, 0, -0.99508, -1.53942, 2.87192, -9.97731)
 
 [node name="LifeSphere" parent="FPS" instance=ExtResource("3_fh0s1")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.459785, 0, -0.576372)
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.459786, 0, -0.576375)
 
 [node name="Floor" type="CSGBox3D" parent="."]
 transform = Transform3D(4.08614, 0, 0, 0, 1.00691, 0, 0, 0, 6.69987, -0.0521376, 0.110149, -5.9057)

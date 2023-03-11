@@ -1,18 +1,18 @@
 shader_type spatial;
 render_mode blend_mix;
 
-uniform vec4 base_color_shadow = vec4(0.5, 0.0, 0.0, 1.0);
-uniform vec4 base_color_highlight = vec4(0.0, 0.5, 0.0, 1.0);
+uniform vec4 base_color_shadow : source_color = vec4(0, 0.0, 1, 1.0);
+uniform vec4 base_color_highlight : source_color = vec4(1, 0, 1, 1.0);
 uniform float base_color_blend : hint_range(0.1, 2.0, 0.05) = 1.2;
-uniform float color_modulate_frequency : hint_range(0.1, 10.0, 0.1) = 1.0;
-uniform float noise_displacement : hint_range(0.1, 1, 0.01) = 0.3;
-uniform float noise_scale : hint_range(1, 20, 0.1) = 7.0;
-uniform float noise_time_scale : hint_range(0.1, 10, 0.1) = 1.0;
-uniform float alpha_distance_min : hint_range(0.5, 1.5, 0.01) = 1.08;
-uniform float alpha_distance_max : hint_range(1.0, 2.0, 0.01) = 1.6;
-uniform float alpha_time_scale : hint_range(0.1, 10, 0.1) = 1.0;
-uniform float emission_intensity : hint_range(0.0, 15.0, 0.1) = 2.0;
-uniform float highlight_intensity : hint_range(0.1, 10.0, 0.1) = 3.0;
+uniform float color_modulate_frequency : hint_range(0.1, 10.0, 0.1) = 0.1;
+uniform float noise_displacement : hint_range(0.1, 1, 0.01) = 0.1;
+uniform float noise_scale : hint_range(1, 20, 0.1) = 1.6;
+uniform float noise_time_scale : hint_range(0.1, 10, 0.1) = 0.1;
+uniform float alpha_distance_min : hint_range(0.5, 1.5, 0.01) = 0.5;
+uniform float alpha_distance_max : hint_range(1.0, 2.0, 0.01) = 1.25;
+uniform float alpha_time_scale : hint_range(0.1, 10, 0.1) = 0.1;
+uniform float emission_intensity : hint_range(0.0, 15.0, 0.1) = 1.7;
+uniform float highlight_intensity : hint_range(0.1, 10.0, 0.1) = 4.7;
 
 varying vec3 normal_norm;
 varying vec3 vertex_local;
