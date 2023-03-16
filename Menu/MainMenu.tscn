@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://croh78y1j0prf"]
+[gd_scene load_steps=7 format=3 uid="uid://croh78y1j0prf"]
 
 [ext_resource type="Script" path="res://Menu/MainMenu.gd" id="1_1asig"]
 [ext_resource type="Script" path="res://Menu/ButtonDishonoredTP.gd" id="1_unfvl"]
+[ext_resource type="Script" path="res://Menu/ButtonPlayground.gd" id="2_62rfm"]
 [ext_resource type="Script" path="res://Menu/ButtonDash.gd" id="3_cenk1"]
 [ext_resource type="Script" path="res://Menu/ButtonTracerRecall.gd" id="4_jux3v"]
 [ext_resource type="Script" path="res://Menu/ButtonSphere.gd" id="5_35q3r"]
@@ -36,6 +37,13 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
+[node name="ButtonPlayground" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Playground"
+script = ExtResource("2_62rfm")
+
 [node name="ButtonDishonoredTP" type="Button" parent="ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
@@ -65,6 +73,7 @@ size_flags_horizontal = 3
 text = "Sphere"
 script = ExtResource("5_35q3r")
 
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/ButtonPlayground" to="ScrollContainer/VBoxContainer/ButtonPlayground" method="_on_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/ButtonDishonoredTP" to="ScrollContainer/VBoxContainer/ButtonDishonoredTP" method="_on_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/ButtonDash" to="ScrollContainer/VBoxContainer/ButtonDash" method="_on_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/ButtonTracerRecall" to="ScrollContainer/VBoxContainer/ButtonTracerRecall" method="_on_pressed"]

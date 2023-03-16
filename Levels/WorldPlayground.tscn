@@ -1,0 +1,80 @@
+[gd_scene load_steps=10 format=3 uid="uid://bifx1q62y75sk"]
+
+[ext_resource type="PackedScene" uid="uid://yi6wcrfubii3" path="res://Characters/FPS.tscn" id="1_e2obv"]
+[ext_resource type="Script" path="res://Characters/Dash.gd" id="2_3ig03"]
+[ext_resource type="Material" path="res://Characters/Portal/raymarch_portal.tres" id="3_vlvq2"]
+[ext_resource type="Shader" path="res://Characters/Ice/ice.gdshader" id="4_wtbc5"]
+[ext_resource type="Texture2D" uid="uid://6lo3fcuswk55" path="res://Characters/Ice/ice3_color.jpg" id="5_uwxwc"]
+[ext_resource type="Texture2D" uid="uid://bnjitpekck8ys" path="res://Characters/Ice/ice2_displacement.jpg" id="6_1h7rx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cdx8h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2uvs0"]
+render_priority = 0
+shader = ExtResource("4_wtbc5")
+shader_parameter/top_color = Color(0.964706, 1, 0.956863, 1)
+shader_parameter/depth = 0.1
+shader_parameter/normal_depth = 1.0
+shader_parameter/roughness = 0.0
+shader_parameter/metallic = 0.7
+shader_parameter/refractive_index = 0.1
+shader_parameter/over_texture = ExtResource("5_uwxwc")
+shader_parameter/under_texture = ExtResource("6_1h7rx")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_o0e4r"]
+
+[node name="World" type="Node3D"]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.79455, 4.7714, -4.01845)
+light_energy = 3.37
+omni_range = 17.315
+
+[node name="OmniLight3D" type="OmniLight3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.61133, 1.25129, 0.652823)
+omni_range = 9.84264
+
+[node name="FPS" parent="." instance=ExtResource("1_e2obv")]
+transform = Transform3D(-0.99508, 0, 0.0990766, 0, 1, 0, -0.0990766, 0, -0.99508, -1.49159, 2.86454, -9.95425)
+script = ExtResource("2_3ig03")
+dash_speed = 50
+dash_duration = 0.1
+speed = 4
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(4.08614, 0, 0, 0, 1.00691, 0, 0, 0, 6.69987, -0.0521376, 0.110149, -5.9057)
+use_collision = true
+size = Vector3(10, 1, 10)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.52646, 2.77845, -2.11211)
+use_collision = true
+size = Vector3(1, 4.26269, 10)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 5, 3)
+use_collision = true
+size = Vector3(1, 10, 10)
+
+[node name="Portal3" type="CSGBox3D" parent="."]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -0.0269473, 5.45344, 3.13887)
+size = Vector3(1, 1, 0.1)
+material = ExtResource("3_vlvq2")
+
+[node name="Portal2" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.29037, 1.34814, 2.51352)
+material = ExtResource("3_vlvq2")
+
+[node name="Portal" type="MeshInstance3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -7.02342, 2.59126, 0.604321)
+mesh = SubResource("BoxMesh_cdx8h")
+surface_material_override/0 = ExtResource("3_vlvq2")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.30679, 2.25095, -1.43019)
+material = SubResource("ShaderMaterial_2uvs0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -3.08715, 0.657897, -1.68835)
+mesh = SubResource("PlaneMesh_o0e4r")
+surface_material_override/0 = SubResource("ShaderMaterial_2uvs0")
