@@ -4,6 +4,9 @@ extends CharacterBody3D
 @export_range(0, 30) var jump_force = 10
 @export_range(0, 30) var mass = 4
 @export_range(0, 3) var mouse_sense = 0.1
+@export_range(40, 120) var default_FOV = 90
+@export_range(40, 120) var zoomed_FOV = 60
+@export_range(0.01, 2) var zoom_duration = 0.1
 
 var max_speed_vector = Vector3(speed, speed, speed)
 var is_camera_locked = false
@@ -16,11 +19,11 @@ var last_mouse_position = Vector2()
 
 @onready var camera: Camera3D = $Camera
 @onready var cursor: ColorRect = $Camera/ColorRect
-
-
+		
 func _ready():
 	# hides the cursor
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	camera.fov = default_FOV
 
 func _input(event):
 	if event is InputEventKey and event.keycode == KEY_ESCAPE and event.pressed == false:
@@ -33,6 +36,16 @@ func _input(event):
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-89), deg_to_rad(89))
 		
 		last_mouse_position = event.position
+		
+	# Zoom in on RMB
+	if Input.is_action_just_pressed("right_mouse"):
+		var zoom_tween = get_tree().create_tween()
+		zoom_tween.tween_property(camera, "fov", zoomed_FOV, zoom_duration)
+	
+	# Zoom out back on RMB
+	if Input.is_action_just_released("right_mouse"):
+		var zoom_tween = get_tree().create_tween()
+		zoom_tween.tween_property(camera, "fov", default_FOV, zoom_duration)
 
 func _physics_process(delta):
 	if is_movement_locked:
