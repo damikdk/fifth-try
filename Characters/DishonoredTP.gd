@@ -4,6 +4,9 @@ extends "res://Characters/FPS.gd"
 var ray_from: Vector3 = Vector3()
 var ray_to: Vector3 = Vector3()
 
+@export_range(0.01, 2) var blink_duration = 0.3
+@export_range(70, 120) var zoomed_fov = 150.0
+
 func _ready():
 	# hides the cursor
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -13,7 +16,7 @@ func _process(_delta):
 
 	# Show if node infront is teleportable
 	
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		cursor.visible = false 
 		
 		# Raycast infront
@@ -28,14 +31,24 @@ func _process(_delta):
 	if Input.is_action_just_released("right_mouse"):
 		cursor.visible = true 
 		
-		var hit_result = hitcastTeleportable()
+		var new_position = getNewPosition()
 		
-		if hit_result is Dictionary:
-			var points = hit_result.collider.teleport_points
-			var closest_teleport_to_hit = findClosestNode(points, hit_result.position)
-			var new_position = closest_teleport_to_hit.global_position + Vector3(0, 2, 0)
-			global_position = new_position 
+		if new_position:
+			global_position = new_position
+			
+	if Input.is_action_just_released("left_mouse"):
+		var new_position = getNewPosition()
+		
+		if new_position:
+			var blink_tween = get_tree().create_tween().set_parallel(true)
 
+			blink_tween.tween_property(camera, "fov", zoomed_fov, blink_duration / 2)
+			blink_tween.tween_property(self, "global_position", new_position, blink_duration)
+			blink_tween.chain().tween_property(camera, "fov", default_FOV, blink_duration / 3)
+			await blink_tween.finished
+			
+		cursor.visible = true 
+		
 func hitcastTeleportable():
 	ray_from = camera.project_ray_origin(last_mouse_position)
 	ray_to = ray_from + camera.project_ray_normal(last_mouse_position) * ray_length
@@ -59,3 +72,14 @@ func findClosestNode(nodes: Array, forPosition: Vector3) -> Node:
 			minimal_distance = distance_from_hit
 		
 	return closest
+
+func getNewPosition():
+	var hit_result = hitcastTeleportable()
+	
+	if hit_result is Dictionary:
+		var points = hit_result.collider.teleport_points
+		var closest_teleport_to_hit = findClosestNode(points, hit_result.position)
+		var new_position = closest_teleport_to_hit.global_position + Vector3(0, 2, 0)
+		return new_position
+	
+	return null

@@ -10,6 +10,8 @@
 transform = Transform3D(-0.99508, 0, 0.0990766, 0, 1, 0, -0.0990766, 0, -0.99508, -1.53983, 2.86454, -9.97786)
 script = ExtResource("2_24gmi")
 ray_length = 15
+blink_duration = 0.3
+zoomed_fov = 150.0
 
 [node name="Floor" type="CSGBox3D" parent="."]
 transform = Transform3D(2.0682, 0, 0, 0, 1.00691, 0, 0, 0, 2.0121, -0.0521376, 0.110149, -5.9057)
@@ -43,6 +45,16 @@ size = Vector3(1, 10, 10)
 
 [node name="Teleportable" type="CSGBox3D" parent="."]
 transform = Transform3D(0.884, 0, 0, 0, 1.15232, 0, 0, 0, 9, 5.32333, 4.78456, -2.67267)
+use_collision = true
+script = ExtResource("2_smdqs")
+
+[node name="Teleportable4" type="CSGBox3D" parent="."]
+transform = Transform3D(0.884, 0, 0, 0, 1.15232, 0, 0, 0, 9, -2.9849, 0.620065, -2.67267)
+use_collision = true
+script = ExtResource("2_smdqs")
+
+[node name="Teleportable5" type="CSGBox3D" parent="."]
+transform = Transform3D(0.884, 0, 0, 0, 1.15232, 0, 0, 0, 9, 2.93731, 0.620065, -11.3928)
 use_collision = true
 script = ExtResource("2_smdqs")
 
