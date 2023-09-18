@@ -17,6 +17,10 @@ func raycast(from: Vector3, to: Vector3, exclude: Array) -> Dictionary:
 func add_sphere(location: Vector3, size = SIZE, color = COLOR) -> Node3D:
 	# Get root scene
 	var scene_root = get_tree().root.get_children()[0]
+	
+	return add_local_sphere(scene_root, location, size, color)	
+
+func add_local_sphere(parent: Node3D, location: Vector3, size = SIZE, color = COLOR) -> Node3D:
 
 	# Create sphere with low detail of size.
 	var sphere = SphereMesh.new()
@@ -35,10 +39,9 @@ func add_sphere(location: Vector3, size = SIZE, color = COLOR) -> Node3D:
 	var node = MeshInstance3D.new()
 	node.mesh = sphere
 
-
-	scene_root.add_child(node)
+	parent.add_child(node)
 	
 	# You can't do this before adding to tree
-	node.global_transform.origin = location
+	node.transform.origin = location
 	
 	return node

@@ -11,13 +11,14 @@ func _ready():
 func add_marks():
 	teleport_points.clear()
 	
-	var max_size = max(scale.x, scale.y, scale.z)
+	var max_size = max(size.x, size.y, size.z)
+	var max_scale = max(scale.x, scale.y, scale.z)
+	quantity = quantity * max_scale
 	var gap = max_size / quantity
 	var offset = gap / 2
 	
 	for mark in quantity:
-		var global_position_for_row = global_position - scale / 2
-		var mark_position = Vector3(scale.x / 2, scale.y, mark * gap + offset)
+		var mark_position = Vector3(0, size.y, mark * gap + offset - size.z / 2)
 		
-		var new_sphere = Helpers.add_sphere(mark_position + global_position_for_row)
+		var new_sphere = Helpers.add_local_sphere(self, mark_position)
 		teleport_points.append(new_sphere)
